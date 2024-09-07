@@ -1,0 +1,136 @@
+<rdf:RDF xmlns="http://www.jlab.org/ontology/dpol#"
+         xml:base="http://www.jlab.org/ontology/dpol"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <owl:Ontology rdf:about="http://www.jlab.org/ontology/dpol"/>
+
+    <!-- DPOL: The main class -->
+    <owl:Class rdf:about="http://www.jlab.org/ontology/dpol#composition">
+        <rdfs:label>Composition</rdfs:label>
+        <rdfs:comment>An OWL representation of the data processing pipeline.</rdfs:comment>
+    </owl:Class>
+
+    <owl:ObjectProperty rdf:about="http://www.jlab.org/ontology/dpol#hasComponent">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#composition"/>
+        <rdfs:range rdf:resource="http://www.jlab.org/ontology/dpol#component"/>
+    </owl:ObjectProperty>
+
+    <!-- Object Properties -->
+    <owl:ObjectProperty rdf:about="http://www.jlab.org/ontology/dpol#hasTransport">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#component"/>
+        <rdfs:range rdf:resource="http://www.jlab.org/ontology/dpol#transport"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.jlab.org/ontology/dpol#hasProcess">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#component"/>
+        <rdfs:range rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.jlab.org/ontology/dpol#hasLink">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#component"/>
+        <rdfs:range rdf:resource="http://www.jlab.org/ontology/dpol#link"/>
+    </owl:ObjectProperty>
+    <!-- DPOLPROCESS: Class with data and object types -->
+    <owl:Class rdf:about="http://www.jlab.org/ontology/dpol#process">
+        <rdfs:label>Process</rdfs:label>
+        <rdfs:comment>An OWL representation of the JCGProcess Java class.</rdfs:comment>
+    </owl:Class>
+
+    <!-- Data Properties -->
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#processName">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isSync">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isPeriodic">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#period">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#transition">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isBefore">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isAt">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isAfter">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#scriptCommand">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#exitCode">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#sendSubject">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#sendType">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#sendText">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isSendRc">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#receiveSubject">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#receiveType">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#receiveText">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isReceiveRc">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="http://www.jlab.org/ontology/dpol#isInitiator">
+        <rdfs:domain rdf:resource="http://www.jlab.org/ontology/dpol#process"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+
+</rdf:RDF>
