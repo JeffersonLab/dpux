@@ -1,2 +1,4 @@
-/build/
+/build/generated
+/build/reports
+/build/test-results
 /.gradle/
